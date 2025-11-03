@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Giacomazzo - Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 0.3rem;
+        }
+
+        header .location {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .language {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4c1d95;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+        }
+
+        .project-card .stars {
+            color: #fbbf24;
+            margin-left: 0.5rem;
+        }
+
+        .project-card p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-links a:hover {
+            color: #764ba2;
+        }
+
+        .resume-download {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bruno Giacomazzo</h1>
+        <p>Scientific Computing and Data Science</p>
+        <p class="location">Utrecht, The Netherlands</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a computational scientist with extensive experience in developing high-performance scientific computing software. My background combines deep technical expertise in numerical methods, algorithm development, and scientific programming to solve complex problems in mathematics and physics.</p>
+                <p>I specialize in building robust, efficient code for scientific applications, with particular strength in Python and Fortran. My tools are used by researchers worldwide to accelerate discovery and train the next generation of scientists.</p>
+                <p><strong>What I bring:</strong> Strong analytical and problem-solving skills, experience with complex algorithms and numerical methods, proven track record of developing maintainable code, and the ability to translate scientific concepts into practical software solutions.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Portfolio Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Introduction to Python</h3>
+                    <span class="language">Python / Jupyter</span>
+                    <p>Comprehensive Python programming course materials covering scientific computing, data visualization, and numerical methods. Well-documented Jupyter notebooks with practical examples and exercises.</p>
+                    <div class="tech-stack">Python • Jupyter • NumPy • SciPy • pandas • Matplotlib</div>
+                    <p style="margin-top: 0.5rem;"><a href="https://github.com/bgiacoma/introduction-to-python" class="project-link">View on GitHub →</a></p>
+                </div>  
+                <div class="project-card">
+                    <h3>Numerical Methods for Partial Differential Equations</h3>
+                    <span class="language">Python / Jupyter</span>
+                    <p>PhD-level course material on numerical methods for partial differential equations. Covers advanced techniques for solving complex mathematical problems computationally.</p>
+                    <div class="tech-stack">Python • Jupyter • Numerical Analysis • PDEs • Scientific Computing</div>
+                    <p style="margin-top: 0.5rem;"><a href="https://github.com/bgiacoma/NumPDE" class="project-link">View on GitHub →</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>Advection Equation Solver</h3>
+                    <span class="language">C++</span>
+                    <p>C++ implementation for solving the advection equation.</p>
+                    <div class="tech-stack">C++ • Numerical Methods • Algorithm Implementation</div>
+                    <p style="margin-top: 0.5rem;"><a href="https://github.com/bgiacoma/advection" class="project-link">View on GitHub →</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>Exact Riemann Solver</h3>
+                    <span class="language">Fortran</span>
+                    <p>Fortran 90 code implementing the first exact solution of the Riemann problem for special relativistic magnetohydrodynamics. Used by research teams worldwide.</p>
+                    <div class="tech-stack">Fortran • Numerical Methods • CFD • MagnetoHydroDynamics</div>
+                    <p style="margin-top: 0.5rem;"><a href="https://github.com/bgiacoma/Exact_Riemann_Solver" class="project-link">View on GitHub →</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>Docker LORENE Tutorial</h3>
+                    <span class="language">Docker</span>
+                    <p>Containerized environment for the LORENE spectral methods library.</p>
+                    <div class="tech-stack">Docker • Linux • Scientific Software</div>
+                    <p style="margin-top: 0.5rem;"><a href="https://github.com/bgiacoma/docker-lorene" class="project-link">View on GitHub →</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Fortran</span>
+                <span class="skill-tag">Jupyter Notebooks</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SciPy</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">pandas</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Numerical Methods</span>
+                <span class="skill-tag">Algorithm Development</span>
+                <span class="skill-tag">Scientific Computing</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">CFD</span>
+                <span class="skill-tag">PDEs</span>
+                <span class="skill-tag">High-Performance Computing (HPC)</span>
+                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">Linux</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">I'm always open to new opportunities in software development, scientific computing, and data science. Let's connect!</p>
+            <div class="contact-links">
+                <a href="https://github.com/bgiacoma" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/brunogiacomazzo/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                <a href="https://www.kaggle.com/brunogiacomazzo" target="_blank"><i class="fab fa-kaggle"></i>Kaggle</a>
+                <a href="https://public.tableau.com/app/profile/bruno.giacomazzo" target="_blank"><i class="fas fa-chart-bar"></i>Tableau</a>
+            </div>
+            <!--
+            <div class="resume-download">
+                <a href="GIACOMAZZO_BRUNO_CV.pdf" class="resume-btn" download></svg>Download Resume (PDF)</a>
+            </div>
+            -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bruno Giacomazzo. All rights reserved. Built with <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" style="color: inherit;">Claude AI</a>.</p>
+    </footer>
+</body>
+</html>
